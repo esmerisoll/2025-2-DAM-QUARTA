@@ -1,17 +1,21 @@
-import 'produto.dart'; // importando a classe do arquivo produto.dart
-
+import 'produto.dart';
 class ItemCompra{
-    Produto produto; 
+    Produto produto;
     int quantidade;
 
     ItemCompra(this.produto, this.quantidade);
 
-    double calcularSubTotal(){ // SubTotal dos Itens
+    double calcularSubTotal(){
         return quantidade * produto.valorUnitario;
     }
 
     @override
-    String toString(){ // $ para trazer o que tem dentro da variavel
-        return '${produto.nome} - ${quantidade} unid. X R\$ ${produto.valorUnitario.toStringAsfixed(2)} = R\$ ${calcularSubTotal().toStringAsfixed(2)}';
+    String toString(){
+        return '''
+        ${produto.nome} - ${quantidade} unid. X 
+        R\$ ${produto.valorUnitario.toStringAsFixed(2)} =
+        R\$ ${calcularSubTotal().toStringAsFixed(2)}
+        ''';
+        
     }
 }
